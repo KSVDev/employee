@@ -4,12 +4,41 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--  ################################  -->
   <servlet>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <servlet-class>com.kozinets.employee.HelloWorldServlet</servlet-class>
+    <servlet-name>Select</servlet-name>
+    <jsp-file>/selectJsp.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <url-pattern>/hello-world</url-pattern>
+    <servlet-name>Select</servlet-name>
+    <url-pattern>/select</url-pattern>
   </servlet-mapping>
+  <!--  ################################  -->
+  <servlet>
+    <servlet-name>Delete</servlet-name>
+    <jsp-file>/deleteJsp.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <!--  ################################  -->
+  <servlet>
+    <servlet-name>Update</servlet-name>
+    <jsp-file>/updateJsp.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Update</servlet-name>
+    <url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  <!--  ################################  -->
+  <servlet>
+    <servlet-name>Insert</servlet-name>
+    <jsp-file>/insertJsp.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Insert</servlet-name>
+    <url-pattern>/insert</url-pattern>
+  </servlet-mapping>
+  <!--  ################################  -->
 </web-app>
