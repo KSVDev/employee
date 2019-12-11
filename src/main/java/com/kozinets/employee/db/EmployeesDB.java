@@ -1,8 +1,7 @@
-package com.kozinets.employee.controller;
+package com.kozinets.employee.db;
 
-import com.kozinets.employee.db.ConnectionGetter;
-import com.kozinets.employee.entities.Department;
-import com.kozinets.employee.entities.Employee;
+import com.kozinets.employee.model.Department;
+import com.kozinets.employee.model.Employee;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,12 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class EmployeesController {
-    private Connection connection;
-
-    public EmployeesController(ConnectionGetter connectionGetter){
-        connection = connectionGetter.getConnection();
-    }
+public class EmployeesDB {
+    ConnectionGetter connectionGetter = new ConnectionGetter();
+    Connection connection = connectionGetter.getConnection();
 
     public ArrayList<Employee> getAllEmployees() throws SQLException {
         Statement statement = connection.createStatement();
@@ -25,7 +21,7 @@ public class EmployeesController {
     }
 
     private Department getDepartmentById(long id) throws SQLException {
-        DepartmentController departmentController = new DepartmentController(connection);
+        DepartmentDB departmentController = new DepartmentDB();
         Department department = departmentController.getDepartmentById(id);
         return department;
     }

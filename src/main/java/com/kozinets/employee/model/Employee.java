@@ -1,4 +1,6 @@
-package com.kozinets.employee.entities;
+package com.kozinets.employee.model;
+
+import com.kozinets.employee.model.Department;
 
 import java.util.Date;
 

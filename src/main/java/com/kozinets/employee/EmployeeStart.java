@@ -1,8 +1,10 @@
 package com.kozinets.employee;
 
-import com.kozinets.employee.controller.EmployeesController;
+import com.kozinets.employee.db.DepartmentDB;
+import com.kozinets.employee.db.EmployeesDB;
 import com.kozinets.employee.db.ConnectionGetter;
-import com.kozinets.employee.entities.Employee;
+import com.kozinets.employee.model.Department;
+import com.kozinets.employee.model.Employee;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,9 +14,11 @@ public class EmployeeStart {
     public static void main(String[] args) throws SQLException {
         ConnectionGetter connectionGetter = new ConnectionGetter();
         Connection connection = connectionGetter.getConnection();
-        EmployeesController employeesController = new EmployeesController(connectionGetter);
-        //ArrayList<Employee> allEmployees = employeesController.getAllEmployees();
-        ArrayList<Employee> allEmployees = employeesController.getAllEmployees();
+        EmployeesDB employeesCDB = new EmployeesDB();
+        DepartmentDB departmentDB = new DepartmentDB();
+        ArrayList<Employee> allEmployees = employeesCDB.getAllEmployees();
+
+
         for (Employee employee : allEmployees){
             System.out.print(employee.getId() + " | ");
             System.out.print(employee.getName() + " | ");
@@ -25,7 +29,8 @@ public class EmployeeStart {
             System.out.println(employee.getDepartment().getName());
 
         }
-        Employee employee = employeesController.getEmployeeById(4);
+        Employee employee = employeesCDB.getEmployeeById(4);
+
         System.out.println("");
         System.out.println("");
         System.out.println("Empolyee by id:");
@@ -36,5 +41,17 @@ public class EmployeeStart {
         System.out.print(employee.getBirthday() + " | ");
         System.out.print(employee.getSalary() + " | ");
         System.out.println(employee.getDepartment().getName());
+
+
+        //Departments
+        ArrayList<Department> allDepartments = departmentDB.getAllDepartments();
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Departments:");
+        for (Department department : allDepartments){
+            System.out.print(department.getId() + " | ");
+            System.out.println(department.getName());
+
+        }
     }
 }

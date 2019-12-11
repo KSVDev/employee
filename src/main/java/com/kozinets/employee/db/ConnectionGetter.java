@@ -4,23 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionGetter implements ConnectionInterface {
+public class ConnectionGetter {
     private Connection connection;
 
-    public ConnectionGetter(){
-
-    }
-
     public Connection getConnection() {
-        Connection connection;
+
         if(!connectionExist(this.connection)){
             newConnection();
         }
-        System.out.println("ConnectionGetter.Connection: " + this.connection);
         return this.connection;
     }
 
-    @Override
     public boolean connectionExist(Connection connection) {
         boolean result;
         if(connection == null){
@@ -31,24 +25,12 @@ public class ConnectionGetter implements ConnectionInterface {
         return result;
     }
 
-    @Override
     public void newConnection() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/crm","crmuser","oroot");
-            this.connection = connection;
-        } catch (SQLException e) {
-            System.out.println(); e.getMessage();
-        }
-    }
-
-    @Override
-    public void closeConnection(){
-        try {
-            this.connection.close();
-        }catch(SQLException e){
-            e.getMessage();
-        }finally {
-
+            Class.forName("com.mysql.jdbc.Driver");
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/crm","crmuser","oroot");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.getStackTrace();
         }
     }
 

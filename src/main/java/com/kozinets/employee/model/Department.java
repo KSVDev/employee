@@ -1,4 +1,4 @@
-package com.kozinets.employee.entities;
+package com.kozinets.employee.model;
 
 public class Department {
     private long id;

@@ -1,4 +1,4 @@
-package com.kozinets.employee;
+package com.kozinets.employee.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,16 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "HelloWorldServlet")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet("/empl/delete")
+public class EmployeeDeleteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        PrintWriter wr = response.getWriter();
+        wr.println("Delete");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter wr = response.getWriter();
-        wr.println("<html>");
-        wr.println("<h1>Hello world!!!!!!!</h1>");
-        wr.println("</html>");
+
     }
 }
