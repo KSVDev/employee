@@ -11,8 +11,7 @@ import java.io.PrintWriter;
 @WebServlet("/depart/insert")
 public class DepartmentInsertController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter wr = response.getWriter();
-        wr.println("Insert");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

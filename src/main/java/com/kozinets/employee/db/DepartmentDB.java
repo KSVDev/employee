@@ -27,6 +27,13 @@ public class DepartmentDB {
         return department;
     }
 
+    public void updateDepartment(long id, String name) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "UPDATE departments SET name = '" + name + "' Where id = " + id;
+        //ResultSet resultSet = statement.executeQuery(sql);
+        int resultSet = statement.executeUpdate(sql);
+    }
+
     public ArrayList<Department> getDepartmentList(ResultSet resultSet) throws SQLException {
         ArrayList<Department> departmentList = new ArrayList<Department>();
         while(resultSet.next()){

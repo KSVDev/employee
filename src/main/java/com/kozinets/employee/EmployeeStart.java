@@ -53,5 +53,7 @@ public class EmployeeStart {
             System.out.println(department.getName());
 
         }
+
+        departmentDB.updateDepartment(5, "IT dddep");
     }
 }

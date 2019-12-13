@@ -20,6 +20,13 @@ public class EmployeesDB {
         return employeeList;
     }
 
+    public ArrayList<Employee> getEmployeesByDepart(long id) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM employees Where department = " + id);
+        ArrayList<Employee> employeeList = getEmployeeList(resultSet);
+        return employeeList;
+    }
+
     private Department getDepartmentById(long id) throws SQLException {
         DepartmentDB departmentController = new DepartmentDB();
         Department department = departmentController.getDepartmentById(id);

@@ -12,9 +12,10 @@
 </head>
 <body>
     <h1>Choose action</h1>
-    <form name="startDepart" action="/depart/select" method="get">
+    <form name="startDepart">
+        <p><input type="radio" name="flagTest" checked="checked" value="${department.id}"/></p>
         <table>
-            <tr><input type="submit" value="К списку департаментов"/></tr>
+            <tr><input type="submit" value="К списку департаментов" formaction="/depart/select" formmethod="get"> </tr>
         </table>
     </form>
 </body>
