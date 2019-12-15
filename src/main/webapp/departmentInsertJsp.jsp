@@ -17,11 +17,11 @@
         <title>InsertDepartment</title>
     </head>
     <body>
-        <form name="">
+        <form name="f1">
             <table>
+                <tr><input type="text" name="NewDepartmentName" value=""/></tr>
                 <tr><input type="submit" name="Добавить" formmethod="post" formaction="/depart/insert" value="Добавить"/></tr>
             </table>
-
         </form>
     </body>
 </html>

@@ -7,21 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.lang.*" %>
-<%@ page import="com.kozinets.employee.model.Department" %>
 <!-- cellpadding="0" cellspacing="5" -->
 <html>
-    <h3>Удалить департамент</h3>
-    <head>
-        <title>DeleteDepartment</title>
-    </head>
-    <body>
-        <form name="">
-            <table>
-                <tr><input type="submit" name="Добавить" formmethod="post" formaction=""/></tr>
-            </table>
+<h3>Удалить департамент</h3>
+<head>
+    <title>DeleteDepartment</title>
+</head>
+<body>
+<form name="f1">
+    <table>
+        <tr><input type="hidden" name="flagDepartment" value="<%= request.getParameter("flagDepartment") %>" /></tr>
+        <tr><input type="submit" name="Удалить" formmethod="post" formaction="/depart/delete" value="Удалить"/></tr>
+    </table>
 
-        </form>
-    </body>
+</form>
+</body>
 </html>

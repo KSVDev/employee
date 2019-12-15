@@ -17,16 +17,14 @@
         <title>UpdateDepartment</title>
     </head>
     <body>
-        <c:set var="flagDepartment1" value='${requestScope["flagDepartment"]}' />
         <form name="updateDepartment">
             <p>
-                <c:out value='${flagDepartment}' /><br/>
-                <input type="text" name="flagDepartment1" value='${flagDepartment}'/><br/>
-                <input type="text" name="NewDepartmentName" value="sss"/>
+                <input type="hidden" name="flagDepartment" value="<%= request.getParameter("flagDepartment")%>"/><br/>
+                <input type="text" name="NewDepartmentName" value=""/>
             </p>
             <table>
                 <tr>
-                    <input type="submit" name="Редактировать" formmethod="post" formaction="/depart/update" value="Редактировать"/>
+                    <input type="submit" formmethod="post" formaction="/depart/update" />
                 </tr>
             </table>
         </form>

@@ -16,10 +16,6 @@ import java.util.ArrayList;
 public class DepartmentSelectController extends HttpServlet {
     private DepartmentDB departmentDB = new DepartmentDB();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ArrayList<Department> departments = null;

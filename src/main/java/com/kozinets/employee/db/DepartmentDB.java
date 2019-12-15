@@ -30,8 +30,19 @@ public class DepartmentDB {
     public void updateDepartment(long id, String name) throws SQLException {
         Statement statement = connection.createStatement();
         String sql = "UPDATE departments SET name = '" + name + "' Where id = " + id;
-        //ResultSet resultSet = statement.executeQuery(sql);
-        int resultSet = statement.executeUpdate(sql);
+        int result = statement.executeUpdate(sql);
+    }
+
+    public void insertDepartment(String name) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "INSERT INTO departments (name) VALUES ('" + name + "')";
+        int result = statement.executeUpdate(sql);
+    }
+
+    public void deleteDepartment(long id) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "DELETE FROM departments WHERE id = " + id;
+        int result = statement.executeUpdate(sql);
     }
 
     public ArrayList<Department> getDepartmentList(ResultSet resultSet) throws SQLException {
