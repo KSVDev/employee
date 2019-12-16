@@ -1,20 +1,23 @@
 package com.kozinets.employee;
 
 import com.kozinets.employee.db.DepartmentDB;
-import com.kozinets.employee.db.EmployeesDB;
+import com.kozinets.employee.db.EmployeeDB;
 import com.kozinets.employee.db.ConnectionGetter;
 import com.kozinets.employee.model.Department;
 import com.kozinets.employee.model.Employee;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EmployeeStart {
     public static void main(String[] args) throws SQLException {
         ConnectionGetter connectionGetter = new ConnectionGetter();
         Connection connection = connectionGetter.getConnection();
-        EmployeesDB employeesCDB = new EmployeesDB();
+        EmployeeDB employeesCDB = new EmployeeDB();
         DepartmentDB departmentDB = new DepartmentDB();
         ArrayList<Employee> allEmployees = employeesCDB.getAllEmployees();
 
@@ -53,15 +56,44 @@ public class EmployeeStart {
             System.out.println(department.getName());
 
         }
-
-        EmployeesDB employeesDB = new EmployeesDB();
-        String name = "Аслан";
-        String surname = "Рахман";
+/*
+        EmployeeDB employeesDB = new EmployeeDB();
+        String name = "Руслан";
+        String surname = "Бароев";
         long department = 18;
-        String email = "aslan@gmail.com";
+        String email = "ruslan@gmail.com";
         String birthday = "1993-2-17";
         int salary = 1000;
 
         employeesDB.insertEmployee(name, surname, department, email, birthday, salary);
+
+ */
+        EmployeeDB employeesDB = new EmployeeDB();
+        long employeeId = 40;
+        Employee employee2 = null;
+        try {
+            employee2 = employeesDB.getEmployeeById(employeeId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String name = employee2.getName();
+        String surname = employee2.getSurname();
+        long departmentId = employee2.getDepartment().getId();
+        String email = employee2.getEmail();
+
+        Date birthday =  employee2.getBirthday();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String birthdayStr = dateFormat.format(birthday);
+
+        int salary = employee2.getSalary();
+        System.out.println(employeeId);
+
+
+        System.out.println(name);
+        System.out.println(surname);
+        System.out.println(departmentId);
+        System.out.println(email);
+        System.out.println(birthday);
+        System.out.println(salary);
     }
 }

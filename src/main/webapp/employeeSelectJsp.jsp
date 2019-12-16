@@ -41,7 +41,7 @@
     </table>
     <table id="t2">
         <tr><input type="submit" formmethod="get" formaction="/employeeInsertJsp.jsp" value="Добавить" /></tr>
-        <tr><input type="submit" formmethod="get" formaction="/employeeUpdateJsp.jsp" value="Редактировать"/></tr>
+        <tr><input type="submit" formmethod="get" formaction="/empl/update" value="Редактировать"/></tr>
         <tr><input type="submit" formmethod="get" formaction="/employeeDeleteJsp.jsp" value="Удалить"/></tr>
         <tr><input type="submit" formmethod="get" formaction="/depart/select" value="Список департаментов"/></tr>
     </table>

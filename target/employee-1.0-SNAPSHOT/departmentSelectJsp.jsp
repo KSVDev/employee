@@ -12,12 +12,16 @@
     <body>
         <form name="selectAllForm">
             <table id="t1" border ="1" width="500" align="left">
-                <td><c:out value="Выбрать"/></td>
+                <td><c:out value="№"/></td>
+                <td><c:out value="ID"/></td>
                 <td><c:out value="Департамент"/></td>
-                <c:forEach var="department" items="${departments}">
+                <td><c:out value="Выбрать"/></td>
+                <c:forEach var="department" items="${departments}" varStatus="row">
                     <tr>
-                        <td><input type="radio" name="flagDepartment" checked="checked" value="${department.id}"/></td>
+                        <td><c:out value="${row.index}"/></td>
+                        <td><c:out value="${department.id}"/></td>
                         <td><c:out value="${department.name}"/></td>
+                        <td><input type="radio" name="flagDepartment" checked="checked" value="${department.id}"/></td>
                     </tr>
                 </c:forEach>
             </table>
@@ -25,7 +29,7 @@
                 <tr><input type="submit" formmethod="get" formaction="/departmentInsertJsp.jsp" value="Добавить" /></tr>
                 <tr><input type="submit" formmethod="get" formaction="/departmentUpdateJsp.jsp" value="Редактировать"/></tr>
                 <tr><input type="submit" formmethod="get" formaction="/departmentDeleteJsp.jsp" value="Удалить"/></tr>
-                <tr><input type="submit" formmethod="get" formaction="/employeeSelectJsp.jsp" value="Список сотрудников"/></tr>
+                <tr><input type="submit" formmethod="get" formaction="/empl/select" value="Список сотрудников"/></tr>
             </table>
         </form>
     </body>

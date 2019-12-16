@@ -1,6 +1,6 @@
 package com.kozinets.employee.controller;
 
-import com.kozinets.employee.db.EmployeesDB;
+import com.kozinets.employee.db.EmployeeDB;
 import com.kozinets.employee.model.Employee;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @WebServlet("/empl/select")
 public class EmployeeSelectController extends HttpServlet {
-    private EmployeesDB employeesDB = new EmployeesDB();
+    private EmployeeDB employeesDB = new EmployeeDB();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

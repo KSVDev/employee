@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class EmployeesDB {
+public class EmployeeDB {
     ConnectionGetter connectionGetter = new ConnectionGetter();
     Connection connection = connectionGetter.getConnection();
 
@@ -67,9 +67,16 @@ public class EmployeesDB {
         return employeeList;
     }
 
-    public void updateEmployee(long id, String name) throws SQLException {
+    public void updateEmployee(long id, String name, String surname, long department, String email, String birthday, int salary) throws SQLException {
         Statement statement = connection.createStatement();
-        String sql = "UPDATE employees SET name = '" + name + "' Where id = " + id;
+        String sql = "UPDATE employees SET"
+            + " name = '" + name + "',"
+            + " surname = '" + surname + "',"
+            + " department = " + department + ","
+            + " email = '" + email + "',"
+            //+ " birthday = CONVERT('" + birthday + "', DATE),"
+            + " salary = " + salary
+            + " Where id = " + id;
         int result = statement.executeUpdate(sql);
     }
 

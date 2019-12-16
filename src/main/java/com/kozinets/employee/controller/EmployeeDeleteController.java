@@ -1,6 +1,6 @@
 package com.kozinets.employee.controller;
 
-import com.kozinets.employee.db.EmployeesDB;
+import com.kozinets.employee.db.EmployeeDB;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @WebServlet("/empl/delete")
 public class EmployeeDeleteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EmployeesDB employeesDB = new EmployeesDB();
+        EmployeeDB employeesDB = new EmployeeDB();
         long employeeId = Long.parseLong(request.getParameter("employeeId"));
         long departmentId = 0;
         try {
