@@ -19,7 +19,7 @@
     <body>
         <form name="updateDepartment">
             <p>
-                <input type="hidden" name="flagDepartment" value="<%= request.getParameter("flagDepartment")%>"/><br/>
+                <input type="hidden" name="flagDepartment" value="${param.flagDepartment}"/><br/>
                 <input type="text" name="NewDepartmentName" value=""/>
             </p>
             <table>

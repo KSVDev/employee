@@ -1,8 +1,6 @@
 package com.kozinets.employee.controller;
 
-import com.kozinets.employee.db.DepartmentDB;
 import com.kozinets.employee.db.EmployeesDB;
-import com.kozinets.employee.model.Department;
 import com.kozinets.employee.model.Employee;
 
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,17 +21,15 @@ public class EmployeeSelectController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Employee> employees = null;
-        ArrayList<String> attributes = (ArrayList<String>) request.getAttributeNames();
+        long departmentId = Long.parseLong(request.getParameter("flagDepartment"));
 
-        if(attributes.size() > 0){
-            long departmentId = (long)request.getAttribute("departmentId");
-            if(departmentId > 0) {
-                try {
-                    employees = employeesDB.getAllEmployees();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        ArrayList<Employee> employees = null;
+
+        if (departmentId > 0) {
+            try {
+                employees = employeesDB.getEmployeesByDepart(departmentId);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
 

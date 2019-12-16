@@ -11,7 +11,7 @@
     <title>Start</title>
 </head>
 <body>
-    <h1>Choose action</h1>
+    <h1>Начало работы</h1>
     <form name="startDepart">
         <table>
             <tr><input type="submit" value="К списку департаментов" formaction="/depart/select" formmethod="get"> </tr>

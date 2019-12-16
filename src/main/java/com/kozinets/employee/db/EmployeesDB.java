@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EmployeesDB {
     ConnectionGetter connectionGetter = new ConnectionGetter();
@@ -22,7 +23,8 @@ public class EmployeesDB {
 
     public ArrayList<Employee> getEmployeesByDepart(long id) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM employees Where department = " + id);
+        String sql = "SELECT * FROM employees Where department = " + id;
+        ResultSet resultSet = statement.executeQuery(sql);
         ArrayList<Employee> employeeList = getEmployeeList(resultSet);
         return employeeList;
     }
@@ -63,5 +65,38 @@ public class EmployeesDB {
             employeeList.add(employee);
         }
         return employeeList;
+    }
+
+    public void updateEmployee(long id, String name) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "UPDATE employees SET name = '" + name + "' Where id = " + id;
+        int result = statement.executeUpdate(sql);
+    }
+
+    public void insertEmployee(String name, String surname, long department, String email, String birthday, int salary) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "INSERT INTO employees (name, surname, department, email, birthday, salary) VALUES ("
+                + "'" + name + "',"
+                + "'" + surname + "',"
+                + department + ","
+                + "'" + email + "',"
+                + "CONVERT('" + birthday + "', DATE),"
+                + salary
+                + ")";
+        int result = statement.executeUpdate(sql);
+    }
+
+    public void deleteEmployee(long id) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "DELETE FROM employees WHERE id = " + id;
+        int result = statement.executeUpdate(sql);
+    }
+
+    public long getDepartmentId(long employeeId) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "SELECT department FROM employees Where id = " + employeeId;
+        ResultSet resultSet = statement.executeQuery(sql);
+        resultSet.next();
+        return resultSet.getLong("department");
     }
 }

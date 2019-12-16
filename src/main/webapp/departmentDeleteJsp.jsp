@@ -16,7 +16,7 @@
 <body>
 <form name="f1">
     <table>
-        <tr><input type="hidden" name="flagDepartment" value="<%= request.getParameter("flagDepartment") %>" /></tr>
+        <tr><input type="hidden" name="flagDepartment" value="${pram.flagDepartment}" /></tr>
         <tr><input type="submit" name="Удалить" formmethod="post" formaction="/depart/delete" value="Удалить"/></tr>
     </table>
 

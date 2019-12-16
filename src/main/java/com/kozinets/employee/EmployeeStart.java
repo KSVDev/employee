@@ -54,6 +54,14 @@ public class EmployeeStart {
 
         }
 
-        departmentDB.updateDepartment(5, "IT dddep");
+        EmployeesDB employeesDB = new EmployeesDB();
+        String name = "Аслан";
+        String surname = "Рахман";
+        long department = 18;
+        String email = "aslan@gmail.com";
+        String birthday = "1993-2-17";
+        int salary = 1000;
+
+        employeesDB.insertEmployee(name, surname, department, email, birthday, salary);
     }
 }
