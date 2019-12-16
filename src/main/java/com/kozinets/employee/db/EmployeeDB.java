@@ -74,7 +74,7 @@ public class EmployeeDB {
             + " surname = '" + surname + "',"
             + " department = " + department + ","
             + " email = '" + email + "',"
-            //+ " birthday = CONVERT('" + birthday + "', DATE),"
+            + " birthday = CONVERT('" + birthday + "', DATE),"
             + " salary = " + salary
             + " Where id = " + id;
         int result = statement.executeUpdate(sql);
