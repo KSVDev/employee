@@ -12,6 +12,8 @@ import java.sql.SQLException;
 
 @WebServlet("/depart/delete")
 public class DepartmentDeleteController extends HttpServlet {
+    private DepartmentDB departmentDB = new DepartmentDB();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DepartmentDB departmentDB = new DepartmentDB();
         long departmentId = Long.parseLong(request.getParameter("departmentId"));
@@ -25,6 +27,13 @@ public class DepartmentDeleteController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long departmentId = Long.parseLong(request.getParameter("departmentId"));
+        String departmentName = null;
+        try {
+            departmentName = departmentDB.getDepartmentById(departmentId).getName();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("departmentName", departmentName);
         request.setAttribute("departmentId", departmentId);
         request.getRequestDispatcher("/departmentDeleteJsp.jsp").forward(request, response);
     }

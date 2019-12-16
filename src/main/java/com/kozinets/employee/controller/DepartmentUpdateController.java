@@ -29,6 +29,13 @@ public class DepartmentUpdateController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long departmentId = Long.parseLong(request.getParameter("departmentId"));
+        String departmentName = null;
+        try {
+            departmentName = departmentDB.getDepartmentById(departmentId).getName();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("departmentName", departmentName);
         request.setAttribute("departmentId", departmentId);
         request.getRequestDispatcher("/departmentUpdateJsp.jsp").forward(request, response);
     }

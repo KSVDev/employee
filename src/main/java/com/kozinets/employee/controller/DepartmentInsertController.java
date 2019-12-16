@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 @WebServlet("/depart/insert")
 public class DepartmentInsertController extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DepartmentDB departmentDB = new DepartmentDB();
         String newDepartmentName = request.getParameter("NewDepartmentName");

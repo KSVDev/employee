@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<h3>Введите новое имя департамента</h3>
+<h3>Изменить данные сотрудника: ${employeeName}</h3>
 <head>
     <title>UpdateEmployee</title>
 </head>

@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<h3>Список сотрудников</h3>
+<h3>Список сотрудников департамента: ${departmentName}</h3>
 <head>
-    <title>SelectAll</title>
+    <title>SelectAllEmployees</title>
 </head>
 <body>
 <form name="selectAllForm">
@@ -36,12 +36,12 @@
             </tr>
         </c:forEach>
     </table>
-    <table id="t2">
-        <tr><input type="submit" formmethod="get" formaction="/employeeInsertJsp.jsp" value="Добавить" /></tr>
-        <tr><input type="submit" formmethod="get" formaction="/empl/update" value="Редактировать"/></tr>
-        <tr><input type="submit" formmethod="get" formaction="/employeeDeleteJsp.jsp" value="Удалить"/></tr>
-        <tr><input type="submit" formmethod="get" formaction="/depart/select" value="Список департаментов"/></tr>
-    </table>
+    <p>
+        <input type="submit" formmethod="get" formaction="/empl/insert" value="Добавить" />
+        <input type="submit" formmethod="get" formaction="/empl/update" value="Редактировать"/>
+        <input type="submit" formmethod="get" formaction="/empl/delete" value="Удалить"/>
+        <input type="submit" formmethod="get" formaction="/depart/select" value="Список департаментов"/>
+    </p>
 </form>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<h3>Введите новое имя департамента</h3>
+<h3>Введите новое имя для департамента: ${departmentName}</h3>
 <head>
     <title>UpdateDepartment</title>
 </head>
@@ -16,13 +16,11 @@
 <form name="updateDepartment">
     <p>
         <input type="hidden" name="departmentId" value="${param.departmentId}"/><br/>
-                <input type="text" name="NewDepartmentName" value=""/>
-            </p>
-            <table>
-                <tr>
-                    <input type="submit" formmethod="post" formaction="/depart/update" />
-                </tr>
-            </table>
+        <input type="text" name="NewDepartmentName" value=""/>
+    </p>
+    <p>
+        <input type="submit" formmethod="post" formaction="/depart/update" />
+    </p>
         </form>
     </body>
 </html>

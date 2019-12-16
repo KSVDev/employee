@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<h3>Удалить работника</h3>
+<h3>Удалить сотрудника: ${employeeName}</h3>
 <head>
     <title>DeleteEmployee</title>
 </head>

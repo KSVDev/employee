@@ -13,6 +13,7 @@ import java.sql.SQLException;
 @WebServlet("/empl/insert")
 public class EmployeeInsertController extends HttpServlet {
     private EmployeeDB employeesDB = new EmployeeDB();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         EmployeeDB employeesDB = new EmployeeDB();
@@ -35,6 +36,14 @@ public class EmployeeInsertController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        long employeeId = Long.parseLong(request.getParameter("employeeId"));
+        long departmentId = 0;
+        try {
+            departmentId = employeesDB.getDepartmentId(employeeId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("departmentId", departmentId);
         request.getRequestDispatcher("/employeeInsertJsp.jsp").forward(request, response);
     }
 }

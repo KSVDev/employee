@@ -13,13 +13,13 @@
     <title>InsertEmployee</title>
 </head>
 <body>
-<form name="f1" accept-charset="windows-1251">
+<form name="f1">
     <label>Имя:</label>
     <input type="text" name="NewEmployeeName" value=""/> <br/>
     <label>Фамилия:</label>
     <input type="text" name="NewEmployeeSurname" value=""/> <br/>
     <label>Департамент:</label>
-    <input type="text" name="NewEmployeeDepartment" value=""/> <br/>
+    <input type="text" name="NewEmployeeDepartment" value="${departmentId}"/> <br/>
     <label>email:</label>
     <input type="text" name="NewEmployeeEmail" value=""/> <br/>
     <label>ДР:</label>
