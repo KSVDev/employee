@@ -17,10 +17,10 @@ public class DepartmentUpdateController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        long flagDepartment = Long.parseLong(request.getParameter("flagDepartment"));
+        long departmentId = Long.parseLong(request.getParameter("departmentId"));
         String newName = request.getParameter("NewDepartmentName");
         try {
-            departmentDB.updateDepartment(flagDepartment, newName);
+            departmentDB.updateDepartment(departmentId, newName);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -29,8 +29,8 @@ public class DepartmentUpdateController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long flagDepartment = Long.parseLong(request.getParameter("flagDepartment"));
-        request.setAttribute("flagDepartment", flagDepartment);
+        long departmentId = Long.parseLong(request.getParameter("departmentId"));
+        request.setAttribute("departmentId", departmentId);
         request.getRequestDispatcher("/departmentUpdateJsp.jsp").forward(request, response);
     }
 }

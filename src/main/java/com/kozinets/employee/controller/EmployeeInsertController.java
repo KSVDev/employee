@@ -31,7 +31,7 @@ public class EmployeeInsertController extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect( "/empl/select?flagDepartment=" + newEmployeeDepartment);
+        response.sendRedirect( "/empl/select?departmentId=" + newEmployeeDepartment);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

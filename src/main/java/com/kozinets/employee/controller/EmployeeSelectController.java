@@ -21,7 +21,7 @@ public class EmployeeSelectController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long departmentId = Long.parseLong(request.getParameter("flagDepartment"));
+        long departmentId = Long.parseLong(request.getParameter("departmentId"));
 
         ArrayList<Employee> employees = null;
 

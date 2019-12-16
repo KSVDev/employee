@@ -27,7 +27,7 @@ public class EmployeeDeleteController extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/empl/select?flagDepartment=" + departmentId);
+        response.sendRedirect("/empl/select?departmentId=" + departmentId);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

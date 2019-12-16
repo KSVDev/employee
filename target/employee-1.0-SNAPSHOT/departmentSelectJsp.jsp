@@ -21,7 +21,7 @@
                         <td><c:out value="${row.index}"/></td>
                         <td><c:out value="${department.id}"/></td>
                         <td><c:out value="${department.name}"/></td>
-                        <td><input type="radio" name="flagDepartment" checked="checked" value="${department.id}"/></td>
+                        <td><input type="radio" name="departmentId" checked="checked" value="${department.id}"/></td>
                     </tr>
                 </c:forEach>
             </table>
