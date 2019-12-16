@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EmployeeDB {
     ConnectionGetter connectionGetter = new ConnectionGetter();
@@ -53,7 +52,7 @@ public class EmployeeDB {
 
     public ArrayList<Employee> getEmployeeList(ResultSet resultSet) throws SQLException {
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
-        while(resultSet.next()){
+        while (resultSet.next()) {
             Employee employee = new Employee();
             employee.setId(resultSet.getLong("id"));
             employee.setName(resultSet.getString("name"));
@@ -70,13 +69,13 @@ public class EmployeeDB {
     public void updateEmployee(long id, String name, String surname, long department, String email, String birthday, int salary) throws SQLException {
         Statement statement = connection.createStatement();
         String sql = "UPDATE employees SET"
-            + " name = '" + name + "',"
-            + " surname = '" + surname + "',"
-            + " department = " + department + ","
-            + " email = '" + email + "',"
-            + " birthday = CONVERT('" + birthday + "', DATE),"
-            + " salary = " + salary
-            + " Where id = " + id;
+                + " name = '" + name + "',"
+                + " surname = '" + surname + "',"
+                + " department = " + department + ","
+                + " email = '" + email + "',"
+                + " birthday = CONVERT('" + birthday + "', DATE),"
+                + " salary = " + salary
+                + " Where id = " + id;
         int result = statement.executeUpdate(sql);
     }
 

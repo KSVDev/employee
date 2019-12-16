@@ -7,9 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.lang.*" %>
-<%@ page import="com.kozinets.employee.model.Employee" %>
 <html>
 <h3>Список сотрудников</h3>
 <head>
@@ -17,7 +14,7 @@
 </head>
 <body>
 <form name="selectAllForm">
-    <table  border ="1" width="500" align="left">
+    <table border="1" width="500" align="left">
         <td><c:out value="Выбрать"/></td>
         <td><c:out value="ID"/></td>
         <td><c:out value="Сотрудник"/></td>

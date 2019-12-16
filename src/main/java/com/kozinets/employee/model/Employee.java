@@ -1,7 +1,5 @@
 package com.kozinets.employee.model;
 
-import com.kozinets.employee.model.Department;
-
 import java.util.Date;
 
 public class Employee {
